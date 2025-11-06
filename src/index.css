@@ -8,89 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Y2K-inspired pastel palette */
+    --background: 300 35% 92%;
+    --foreground: 270 45% 35%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 270 45% 35%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 270 45% 35%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 270 45% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 280 35% 70%;
+    --secondary-foreground: 270 45% 35%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 300 25% 85%;
+    --muted-foreground: 270 25% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 48 100% 60%;
+    --accent-foreground: 270 45% 35%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 300 30% 85%;
+    --input: 300 30% 90%;
+    --ring: 270 45% 45%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom Y2K colors */
+    --y2k-pink: 320 45% 88%;
+    --y2k-lavender: 280 40% 85%;
+    --y2k-yellow: 48 100% 60%;
+    --y2k-purple: 270 45% 45%;
+    --y2k-purple-text: 270 40% 50%;
+    --y2k-coral: 15 80% 70%;
+    
+    /* Gradients */
+    --gradient-pastel: linear-gradient(135deg, hsl(300, 35%, 92%) 0%, hsl(280, 40%, 90%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 12px hsl(270 45% 45% / 0.1);
+    --shadow-hover: 0 8px 24px hsl(270 45% 45% / 0.15);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -101,5 +66,32 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 4.5C12 4.5 7.5 8.5 7.5 12C7.5 14.5 9.5 16.5 12 16.5C14.5 16.5 16.5 14.5 16.5 12C16.5 8.5 12 4.5 12 4.5Z' fill='%23E91E63' stroke='%23C2185B' stroke-width='1.5'/%3E%3Cpath d='M12 16.5C12 16.5 9 18 7.5 19.5C6 21 6 21 6 21' stroke='%23C2185B' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") 12 12, auto;
+    background-image: 
+      repeating-linear-gradient(0deg, hsl(270 45% 45% / 0.06) 0px, transparent 1px, transparent 2px, hsl(270 45% 45% / 0.06) 3px),
+      repeating-linear-gradient(90deg, hsl(270 45% 45% / 0.06) 0px, transparent 1px, transparent 2px, hsl(270 45% 45% / 0.06) 3px);
+    background-size: 30px 30px;
+  }
+  
+  a, button {
+    cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 4.5C12 4.5 7.5 8.5 7.5 12C7.5 14.5 9.5 16.5 12 16.5C14.5 16.5 16.5 14.5 16.5 12C16.5 8.5 12 4.5 12 4.5Z' fill='%23FF69B4' stroke='%23FF1493' stroke-width='1.5'/%3E%3Cpath d='M12 16.5C12 16.5 9 18 7.5 19.5C6 21 6 21 6 21' stroke='%23FF1493' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") 12 12, pointer;
+  }
+}
+
+@layer components {
+  .grid-bg {
+    background-image: 
+      repeating-linear-gradient(0deg, hsl(270 45% 45% / 0.06) 0px, transparent 1px, transparent 2px, hsl(270 45% 45% / 0.06) 3px),
+      repeating-linear-gradient(90deg, hsl(270 45% 45% / 0.06) 0px, transparent 1px, transparent 2px, hsl(270 45% 45% / 0.06) 3px);
+    background-size: 30px 30px;
+  }
+  
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
   }
 }
