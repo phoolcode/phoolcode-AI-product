@@ -2,8 +2,13 @@ import Navigation from "@/components/Navigation";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { useState } from "react";
+import FloatingEmojis from "@/components/FloatingEmojis";
 
 const Portfolio = () => {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  
   const projects = {
     product: [
       {
@@ -50,7 +55,8 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <FloatingEmojis />
       <Navigation />
       
       <main className="container mx-auto px-6 pt-32 pb-20">
@@ -75,7 +81,8 @@ const Portfolio = () => {
                   {items.map((project, idx) => (
                     <Card
                       key={idx}
-                      className="p-6 hover-lift bg-card border-2 border-border overflow-hidden relative group"
+                      className="p-6 hover-lift bg-card border-2 border-border overflow-hidden relative group cursor-pointer"
+                      onClick={() => setSelectedProject(project)}
                     >
                       {/* Background emoji */}
                       <div className="absolute -right-8 -top-8 text-8xl opacity-10 group-hover:scale-110 transition-transform">
@@ -115,6 +122,32 @@ const Portfolio = () => {
           </Tabs>
         </div>
       </main>
+
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-3xl flex items-center gap-3">
+              <span className="text-4xl">{selectedProject?.image}</span>
+              {selectedProject?.title}
+            </DialogTitle>
+            <DialogDescription className="text-lg pt-4">
+              {selectedProject?.description}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-semibold text-primary mb-2">Technologies Used:</h4>
+              <div className="flex flex-wrap gap-2">
+                {selectedProject?.tags.map((tag: string) => (
+                  <Badge key={tag} variant="outline" className="font-medium">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

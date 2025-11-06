@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import portraitImage from "@/assets/portrait.png";
+import FloatingEmojis from "@/components/FloatingEmojis";
+import RotatingText from "@/components/RotatingText";
 
 const Home = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <FloatingEmojis />
       <Navigation />
       
       <main className="container mx-auto px-6 pt-32 pb-20">
@@ -32,9 +35,7 @@ const Home = () => {
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Aspiring Polymath, Problem Solver, Machine Learning Engineer, Product Manager, Animal Companion
-            </p>
+            <RotatingText />
 
             <Button variant="y2k" size="lg" className="text-base px-8">
               Contact
@@ -42,13 +43,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="fixed top-1/4 left-10 text-6xl animate-bounce opacity-30 pointer-events-none hidden lg:block">
-          ✨
-        </div>
-        <div className="fixed bottom-1/4 right-10 text-5xl animate-bounce opacity-30 pointer-events-none hidden lg:block" style={{ animationDelay: "0.5s" }}>
-          💫
-        </div>
       </main>
     </div>
   );

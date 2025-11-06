@@ -1,8 +1,21 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const Navigation = () => {
   const location = useLocation();
+  const [logo, setLogo] = useState<string>("/placeholder.svg");
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setLogo(event.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const navItems = [
     { name: "About", path: "/about" },
@@ -16,10 +29,16 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span className="text-2xl">🌸</span>
-            </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <label className="cursor-pointer relative">
+              <img src={logo} alt="Logo" className="w-10 h-10 object-contain rounded-full hover:scale-110 transition-transform" />
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+            </label>
             <span className="font-bold text-xl text-primary">phoolcode</span>
           </Link>
 
