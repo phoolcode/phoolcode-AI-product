@@ -24,8 +24,7 @@ const WorldMap = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const [selectedStop, setSelectedStop] = useState<JourneyStop | null>(null);
-  const [apiKey, setApiKey] = useState('');
-  const [showApiInput, setShowApiInput] = useState(true);
+  const apiKey = 'pk.eyJ1IjoiZmFsZ3VuaW11dGhhIiwiYSI6ImNtaHdvbzQ2MjAxeDIycXB0MnRsZXdjNGYifQ.iv6Pqwp6i2rrO5AA0zMR2w';
 
   const journeyStops: JourneyStop[] = [
     {
@@ -95,7 +94,7 @@ const WorldMap = () => {
   ];
 
   useEffect(() => {
-    if (!mapContainer.current || !apiKey) return;
+    if (!mapContainer.current) return;
 
     mapboxgl.accessToken = apiKey;
     
@@ -179,37 +178,7 @@ const WorldMap = () => {
     return () => {
       map.current?.remove();
     };
-  }, [apiKey]);
-
-  const handleApiKeySubmit = () => {
-    if (apiKey.trim()) {
-      setShowApiInput(false);
-    }
-  };
-
-  if (showApiInput) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4 p-8 bg-card rounded-lg border-2 border-border">
-        <h3 className="text-2xl font-bold text-primary">🗺️ Set Up Your World Map</h3>
-        <p className="text-muted-foreground text-center max-w-md">
-          To display the interactive map, please enter your Mapbox public token. 
-          Get one free at <a href="https://mapbox.com" target="_blank" rel="noopener noreferrer" className="text-primary underline">mapbox.com</a>
-        </p>
-        <div className="flex gap-2 w-full max-w-md">
-          <Input
-            type="text"
-            placeholder="pk.eyJ1..."
-            value={apiKey}
-            onChange={(e) => setApiKey(e.target.value)}
-            className="flex-1"
-          />
-          <Button variant="y2k" onClick={handleApiKeySubmit}>
-            Load Map
-          </Button>
-        </div>
-      </div>
-    );
-  }
+  }, []);
 
   return (
     <>
