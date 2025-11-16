@@ -28,66 +28,90 @@ const WorldMap = () => {
 
   const journeyStops: JourneyStop[] = [
     {
-      name: "India",
-      location: "Mumbai",
-      coordinates: [72.8777, 19.0760],
-      years: "2004 - 2010",
+      name: "Pune",
+      location: "Pune, India",
+      coordinates: [73.8567, 18.5204],
+      years: "Early Years",
       photos: [
         {
           url: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da",
-          caption: "Growing up in Mumbai, surrounded by vibrant culture and endless energy."
+          caption: "Rotaract Club Revival: Became the 7th president when it had 10 members eyeing the exit. Built it back to 35 people who actually showed up. We fed 35 nomadic families during lockdown by running online scavenger hunts on WhatsApp. 15 days, 15 games, and somehow it worked."
         },
         {
-          url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
-          caption: "Early school days where curiosity about technology first sparked."
+          url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+          caption: "Founded the Economics and Finance Club at Cummins—a women's engineering college that had zero finance education. Started with fake rupees, got Bloomberg people to talk about student budgeting. 200 people joined. Had to interview 50 people for board positions."
+        },
+        {
+          url: "https://images.unsplash.com/photo-1425082661705-1834bfd09dca",
+          caption: "Certified Animal Person: Lifelong vegetarian, all-animal lover—yes, including frogs and reptiles. If money weren't real, I'd run an animal sanctuary and biodiversity center full-time. For now, I'm just the person who rescues insects from pools."
+        },
+        {
+          url: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
+          caption: "The Era of Sucking at Everything Equally: Pune gave me time to try every hobby—dancing, swimming, singing, writing, cooking, crocheting, thrifting. Didn't master anything. Had the time of my life anyway."
         }
       ]
     },
     {
-      name: "USA",
-      location: "San Francisco",
-      coordinates: [-122.4194, 37.7749],
-      years: "2015 - 2020",
+      name: "Delhi",
+      location: "Delhi, India",
+      coordinates: [77.1025, 28.7041],
+      years: "Innovation Era",
       photos: [
         {
-          url: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
-          caption: "Diving deep into Machine Learning and AI research."
+          url: "https://images.unsplash.com/photo-1587474260584-136574528ed5",
+          caption: "The Salad Vending Machine Moment: Won the Avery Dennison Invent Scholarship for designing a vending machine that makes fresh vegetable salads from scratch. Got flown to Delhi for the ceremony, then somehow ended up on a panel as a 'trailblazer of innovation.' Pune's Hatkar Punekar radio show had me on to talk about it."
         },
         {
-          url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
-          caption: "Collaborating with brilliant minds on cutting-edge projects."
+          url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+          caption: "HPAIR: Attended Harvard Project for Asian and International Relations in Delhi on full scholarship. Made friends with people so smart it was genuinely stupid. The kind of people who casually know three languages and have opinions about monetary policy at brunch."
         }
       ]
     },
     {
-      name: "UK",
-      location: "London",
-      coordinates: [-0.1278, 51.5074],
-      years: "2020 - 2023",
-      photos: [
-        {
-          url: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad",
-          caption: "The pivot moment - discovering my passion for product management."
-        },
-        {
-          url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-          caption: "Learning to bridge the gap between technical excellence and user needs."
-        }
-      ]
-    },
-    {
-      name: "Germany",
-      location: "Berlin",
-      coordinates: [13.4050, 52.5200],
-      years: "2023 - Present",
+      name: "Bangalore",
+      location: "Bangalore, India",
+      coordinates: [77.5946, 12.9716],
+      years: "ML & Tech Era",
       photos: [
         {
           url: "https://images.unsplash.com/photo-1517048676732-d65bc937f952",
-          caption: "Current chapter: Building AI products that make a difference."
+          caption: "Machine Learning Engineer at athenahealth in Richmond Town—best part of Bangalore, fight me. Dove deep into NLP: NER, classification, text clustering, became a Snowflake and PySpark person. Made model parallelization slightly less terrifying for the team."
         },
         {
-          url: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf",
-          caption: "Combining technical expertise with strategic product thinking."
+          url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+          caption: "Projects Era: Built everything from Hyperspectral Image Classification with 3D CNNs to Indian Sign Language Recognition. Created a Personal Portfolio Manager AI, Smart Insulin Pump System, Mini Mahilo agent manager, and currently building Caterpillar MCP Server using Llama."
+        },
+        {
+          url: "https://images.unsplash.com/photo-1511578314322-379afb476865",
+          caption: "The Product Ideas: Amazon Subscribe & Save Redesign, GPT Text Scanner Chrome Extension, Math Equation Mood Board, AI Teacher with Actual Personality, System Design Whiteboard Tool. Some shipped, some still cooking."
+        },
+        {
+          url: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6",
+          caption: "The City That Ruined Me: Explored Lahe Lahe, Watson's, Old Bangalore, every startup café. Blue Tokai became a personality trait. Lived alone but was never really alone—this city has people everywhere. I have a whole recommendation list. I envision never leaving."
+        },
+        {
+          url: "https://images.unsplash.com/photo-1488646953014-85cb44e25828",
+          caption: "Solo Travel Era: Learned to scuba dive. Explored Thailand, Karnataka, Mumbai, the Golden Triangle. Did all the touristy things without irony because touristy things are fun. Traveling solo taught me I'm decent company for myself."
+        }
+      ]
+    },
+    {
+      name: "West Lafayette",
+      location: "West Lafayette, USA",
+      coordinates: [-86.9081, 40.4259],
+      years: "Present",
+      photos: [
+        {
+          url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1",
+          caption: "Purdue: Voluntarily Choosing Hard Mode. Attending Purdue for Engineering Management because I genuinely wanted to get uncomfortable and do harder things. Studying technical product management, venture funding, pro bono consulting. Currently working with Caterpillar Inc."
+        },
+        {
+          url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+          caption: "Consulting & Venture Funding: Project Manager at 180 Degrees Consulting, Associate in venture funding—analyzing real companies in real-time and deciding if they deserve money. Equal parts exhilarating and terrifying. Turns out evaluating other people's dreams is a weird responsibility."
+        },
+        {
+          url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+          caption: "New Orleans for SWE: Attended the Society of Women Engineers conference in New Orleans. Cutest city I've ever seen. Would go back just for the architecture and beignets. The conference was great too, I guess."
         }
       ]
     }
@@ -109,10 +133,11 @@ const WorldMap = () => {
 
     // Enable smooth globe rotation
     let userInteracting = false;
+    let markerHovered = false;
     const secondsPerRevolution = 120;
     
     function spinGlobe() {
-      if (!map.current || userInteracting) return;
+      if (!map.current || userInteracting || markerHovered) return;
       const zoom = map.current.getZoom();
       if (zoom < 3) {
         const center = map.current.getCenter();
@@ -147,13 +172,16 @@ const WorldMap = () => {
         el.style.transition = 'all 0.3s ease';
         
         el.addEventListener('mouseenter', () => {
+          markerHovered = true;
           el.style.transform = 'scale(1.5)';
           el.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.8)';
         });
         
         el.addEventListener('mouseleave', () => {
+          markerHovered = false;
           el.style.transform = 'scale(1)';
           el.style.boxShadow = 'none';
+          spinGlobe();
         });
         
         const marker = new mapboxgl.Marker(el)
