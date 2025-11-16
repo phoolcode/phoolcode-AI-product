@@ -14,10 +14,10 @@ const Home = () => {
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
           {/* Portrait with shadow */}
           <div className="relative group">
-            <div className="w-64 h-80 md:w-80 md:h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white group-hover:scale-105 transition-transform duration-500">
+            <div className="w-64 h-100 md:w-80 md:h-100 rounded-full overflow-hidden shadow-2xl group-hover:scale-105 transition-transform duration-500" style={{ aspectRatio: '1/2' }}>
               <img
                 src={portraitImage}
-                alt="Falouni portrait"
+                alt="Falguni portrait"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -31,7 +31,7 @@ const Home = () => {
               Hi! It's{" "}
               <span className="inline-flex items-center gap-2">
                 <span className="text-4xl md:text-5xl">👋</span>
-                <span className="text-primary">Falouni</span>
+                <span className="text-primary">Falguni</span>
               </span>
             </h1>
             

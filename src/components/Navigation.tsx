@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Navigation = () => {
   const location = useLocation();
-  const [logo, setLogo] = useState<string>("/placeholder.svg");
+  const [logo, setLogo] = useState<string>("/falguni_logo.png");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -31,7 +31,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
             <label className="cursor-pointer relative">
-              <img src={logo} alt="Logo" className="w-10 h-10 object-contain rounded-full hover:scale-110 transition-transform" />
+              <img src={logo} alt="Logo" className="w-20 h-20 object-contain hover:scale-110 transition-transform" />
               <input
                 type="file"
                 accept="image/*"
@@ -39,7 +39,6 @@ const Navigation = () => {
                 className="hidden"
               />
             </label>
-            <span className="font-bold text-xl text-primary">phoolcode</span>
           </Link>
 
           <div className="flex gap-6">

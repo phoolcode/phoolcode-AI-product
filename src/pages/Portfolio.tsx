@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useState } from "react";
 import FloatingEmojis from "@/components/FloatingEmojis";
+import { title } from "process";
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -12,31 +13,73 @@ const Portfolio = () => {
   const projects = {
     product: [
       {
-        title: "Money Manager AI",
-        description: "I made this as a personal finance assistant that can import, categorize, and analyze expenses using LLM technology.",
-        tags: ["LLM", "MCP", "Python"],
-        image: "💰",
+        title: "Amazon Subscribe and Save - UX redesign",
+        description: "Conducted comprehensive UX audit of Amazon's Subscribe & Save program (currently at 10% adoption). Identified three user segments based on subscription intent, mapped critical drop-off points across the purchase journey, and designed solutions to increase discoverability and conversion.",
+        tags: ["User Research", "Journey Mapping", "UX/UI Design", "A/B Testing Strategy", "Behavioral Segmentation", "RICE Framework"],
+        image: "🛒",
       },
       {
-        title: "Radio-driver",
-        description: "A personal finance assistant that can import transactions and provide insights using AI.",
-        tags: ["LLM", "MCP", "Python"],
+        title: "System Design Whiteboard Tool ",
+        description: "A drag-and-drop whiteboard specifically built for system design interviews and architecture planning. Includes a built-in repository of all major MLOps and DevOps tools with their functionalities. Drag components, connect them, and see real-time pros/cons analysis. Problem Solved: Current tools (Excalidraw, Lucidchart) aren't built for system design specifically. This one knows what a load balancer does and can tell you why you probably don't need Kafka.",
+        tags: ["Product Design", "UX Research", "Frontend Development", "React"],
+        image: "🧑‍💻",
+      },
+      {
+        title: "GPT Text Scanner Chrome Extension (In Development)",
+        description: "Building a chrome extension that eliminates the tab-switching hell of using ChatGPT. Highlight any text on any webpage, scan it, and GPT opens in a small overlay window—no copy-paste, no context switching. Features include text improvement, summarization, and tone adjustment.Problem Solved: Current workflow requires opening ChatGPT in new tab → copy text → paste → switch back. This makes it seamless.",
+        tags: ["Chrome Extension Development", "API Integration", "UX Design", "JavaScript"],
         image: "📻",
       },
+      {
+        title: "Math Equation mood visulizer",
+        description: "An experimental tool that converts math equations and symbols into visual art based on emotional association. Upload your photo, select an equation (plus signs feel structured, integrals feel flowy), and generate a visual representation of how math makes you feel. Is it useful? Unclear. Is it cool? Absolutely.",
+        tags: ["Generative Art", "Image Processing", "Creative Tech", "Python"],
+        image: "📐",
+      },
+      {
+        title: "AI Teacher with Personality",
+        description: "Creating AI tutors that don't just teach—they have distinct personalities and evoke genuine emotion. The system learns your learning style and adapts both content and delivery. Because learning calculus from a robot that gets genuinely excited about derivatives hits different than one that just recites formulas. Innovation: Personalized pedagogy that adapts to individual learning patterns while maintaining consistent character traits.",
+        tags: ["LLM Prompting","EdTech"],
+        image: "👩‍🏫",
+      }
     ],
     ml: [
       {
-        title: "Sentiment Analysis Engine",
-        description: "Built a custom NLP model for real-time sentiment analysis across multiple languages.",
-        tags: ["NLP", "TensorFlow", "Python"],
-        image: "🤖",
+        title: "Caterpillar MCP Server (In Progress)",
+        description: "Building an MCP (Model Context Protocol) server using Llama to generate intelligent dashboards from Caterpillar's proprietary heavy machinery track data. Creating a natural language interface for engineers to query and visualize complex equipment performance metrics without writing SQL.",
+        tags: ["Llama", "Data Visualization", "Folium", "MCP", "FastAPI", "Javascript"],
+        image: "🚜",
       },
       {
-        title: "Predictive Analytics Dashboard",
-        description: "Created ML-powered forecasting tool for business intelligence.",
-        tags: ["ML", "Data Science", "Visualization"],
-        image: "📊",
+        title: "Hyperspectral Image Classification",
+        description: "Worked with the Indian Pines dataset to classify land cover using 3D CNNs and ensemble learning. Combined spatial and spectral features to identify crop types from satellite imagery—turns out multiple dimensions make classification significantly more accurate. Implemented dimensionality reduction techniques and tested various ensemble methods to optimize performance.",
+        tags: ["3D CNNs", "Ensemble Learning", "Hyperspectral Analysis", "Dimensionality Reduction", "TensorFlow"],
+        image: "🌾",
       },
+      {
+        title: "Indian Sign Language Recognition",
+        description: "Built a complete pipeline for recognizing Indian Sign Language gestures. Started with Canny edge detection and SIFT feature extraction, moved to visual bag of words model, then implemented CNNs for real-time classification. Created a system that actually works for accessibility—which matters more than the tech stack.",
+        tags: ["Computer Vision", "CNNs", "Feature Extraction (SIFT)", "Canny Edge Detection", "Visual Bag of Words, OpenCV"],
+        image: "🤟",
+      },
+      {
+        title: "Personal Portfolio Manager AI",
+        description: "An AI-powered investment portfolio manager that tracks stocks and provides intelligent rebalancing recommendations. Built because manually tracking portfolios is tedious, and I wanted something smarter than spreadsheets. Uses ML models to analyze market trends and suggest optimal allocation strategies.",
+        tags: ["Streamlit", "GPT-4", "API integration"],
+        image: "📰",
+      },
+      {
+        title: "Smart Insulin Pump System",
+        description: "Designed an IoT-based insulin delivery system that adapts to real-time glucose monitoring. The pump adjusts dosage automatically based on continuous glucose data, reducing the burden on patients managing diabetes. Healthcare + engineering at its most practical.",
+        tags: ["IoT, Embedded Systems", "Healthcare Tech", "Real-time Data Processing", "Arduino/Raspberry Pi"],
+        image: "💉",
+      },
+      {
+        title: "Mini Multi-Agent Workflow Manager",
+        description: "Created a lightweight flexible agent manager for orchestrating multiple AI agents. Basically air traffic control for chatbots—handles naming, routing, and coordination between different AI agents in complex workflows. Makes multi-agent systems less chaotic.",
+        tags: ["Agent Orchestration", "LLM Integration"],
+        image: "🤖",
+      }
     ],
     strategy: [
       {
