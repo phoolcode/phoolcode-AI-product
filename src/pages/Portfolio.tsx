@@ -157,7 +157,7 @@ const Portfolio = () => {
               {/* Product Projects */}
               <section>
                 <h2 className="text-3xl font-bold text-foreground mb-8">Product Projects</h2>
-                <div className="space-y-6">
+                <div className="grid gap-6 md:grid-cols-2">
                   {projects.product.map((project, index) => (
                     <Card key={index} className="hover:shadow-lg transition-shadow">
                       <CardHeader>
@@ -275,7 +275,7 @@ const Portfolio = () => {
             </TabsContent>
 
             <TabsContent value="product">
-              <div className="space-y-6">
+              <div className="grid gap-6 md:grid-cols-2">
                 {projects.product.map((project, index) => (
                   <Card key={index} className="hover:shadow-lg transition-shadow">
                     <CardHeader>
@@ -352,21 +352,6 @@ const Portfolio = () => {
               </div>
             </TabsContent>
           </Tabs>
-
-          {/* Closing Statement */}
-          <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
-            <CardContent className="pt-6">
-              <h3 className="text-2xl font-bold mb-4">What This All Means</h3>
-              <p className="text-muted-foreground text-base leading-relaxed">
-                I build things that exist at the intersection of machine learning engineering and product thinking. 
-                The ML projects show I can actually code and understand algorithms. The product projects show I think 
-                about users, problems, and business impact—not just features.
-              </p>
-              <p className="text-foreground font-medium mt-4">
-                If you're hiring an AI-native PM or ML engineer who thinks like a product person, these are my receipts.
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </main>
     </div>
