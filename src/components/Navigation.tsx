@@ -4,18 +4,6 @@ import { useState } from "react";
 
 const Navigation = () => {
   const location = useLocation();
-  const [logo, setLogo] = useState<string>("/falguni_logo.png");
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setLogo(event.target?.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   const navItems = [
     { name: "About", path: "/about" },
@@ -30,15 +18,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <label className="cursor-pointer relative">
-              <img src={logo} alt="Logo" className="w-20 h-20 object-contain hover:scale-110 transition-transform" />
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileChange}
-                className="hidden"
-              />
-            </label>
+            <span className="text-5xl hover:scale-110 transition-transform">🌸</span>
           </Link>
 
           <div className="flex gap-6">
