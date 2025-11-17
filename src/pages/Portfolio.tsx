@@ -2,7 +2,8 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Github, ExternalLink } from "lucide-react";
 import FloatingEmojis from "@/components/FloatingEmojis";
 
 const Portfolio = () => {
@@ -104,113 +105,253 @@ const Portfolio = () => {
             </p>
           </div>
 
-          {/* ML Projects Section */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold text-foreground mb-8">Machine Learning & Technical Projects</h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              {projects.ml.map((project, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      {project.inProgress && (
-                        <Badge variant="secondary" className="ml-2">In Progress</Badge>
-                      )}
-                      {project.github && (
-                        <Button variant="ghost" size="icon" asChild>
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Github className="h-5 w-5" />
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base mb-4 text-foreground/80">
-                      {project.description}
-                    </CardDescription>
-                    <div className="flex flex-wrap gap-2">
-                      {project.skills.map((skill, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
+          <Tabs defaultValue="all" className="w-full">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-12">
+              <TabsTrigger value="all">All Projects</TabsTrigger>
+              <TabsTrigger value="ml">ML & Technical</TabsTrigger>
+              <TabsTrigger value="product">Product</TabsTrigger>
+            </TabsList>
 
-          {/* Product Projects Section */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold text-foreground mb-8">Product Projects</h2>
-            <div className="space-y-6">
-              {projects.product.map((project, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-start justify-between">
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <div className="flex gap-2">
-                        {project.inProgress && (
-                          <Badge variant="secondary">In Development</Badge>
-                        )}
-                        {project.concept && (
-                          <Badge variant="outline">Concept</Badge>
-                        )}
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <CardDescription className="text-base text-foreground/80">
-                      {project.description}
-                    </CardDescription>
-                    
-                    {project.details && (
-                      <div>
-                        <h4 className="font-semibold text-sm mb-2">Key Solutions:</h4>
-                        <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                          {project.details.map((detail, idx) => (
-                            <li key={idx}>{detail}</li>
+            <TabsContent value="all" className="space-y-12">
+              {/* ML Projects */}
+              <section>
+                <h2 className="text-3xl font-bold text-foreground mb-8">Machine Learning & Technical Projects</h2>
+                <div className="grid gap-6 md:grid-cols-2">
+                  {projects.ml.map((project, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-shadow">
+                      <CardHeader>
+                        <div className="flex items-start justify-between gap-4">
+                          <a 
+                            href="https://github.com/falguni-mutha" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="group flex-1"
+                          >
+                            <CardTitle className="text-xl group-hover:text-primary transition-colors flex items-center gap-2">
+                              {project.title}
+                              <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </CardTitle>
+                          </a>
+                          {project.inProgress && (
+                            <Badge variant="secondary" className="shrink-0">In Progress</Badge>
+                          )}
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription className="text-base mb-4 text-foreground/80">
+                          {project.description}
+                        </CardDescription>
+                        <div className="flex flex-wrap gap-2">
+                          {project.skills.map((skill, idx) => (
+                            <Badge key={idx} variant="outline" className="text-xs">
+                              {skill}
+                            </Badge>
                           ))}
-                        </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+
+              {/* Product Projects */}
+              <section>
+                <h2 className="text-3xl font-bold text-foreground mb-8">Product Projects</h2>
+                <div className="space-y-6">
+                  {projects.product.map((project, index) => (
+                    <Card key={index} className="hover:shadow-lg transition-shadow">
+                      <CardHeader>
+                        <div className="flex items-start justify-between gap-4">
+                          <a 
+                            href="https://github.com/falguni-mutha" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="group flex-1"
+                          >
+                            <CardTitle className="text-xl group-hover:text-primary transition-colors flex items-center gap-2">
+                              {project.title}
+                              <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </CardTitle>
+                          </a>
+                          <div className="flex gap-2 shrink-0">
+                            {project.inProgress && (
+                              <Badge variant="secondary">In Development</Badge>
+                            )}
+                            {project.concept && (
+                              <Badge variant="outline">Concept</Badge>
+                            )}
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        <CardDescription className="text-base text-foreground/80">
+                          {project.description}
+                        </CardDescription>
+                        
+                        {project.details && (
+                          <div>
+                            <h4 className="font-semibold text-sm mb-2">Key Solutions:</h4>
+                            <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                              {project.details.map((detail, idx) => (
+                                <li key={idx}>{detail}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        
+                        {project.impact && (
+                          <p className="text-sm text-muted-foreground">
+                            <span className="font-semibold">Impact Focus:</span> {project.impact}
+                          </p>
+                        )}
+                        
+                        {project.problem && (
+                          <p className="text-sm text-muted-foreground">
+                            <span className="font-semibold">Problem Solved:</span> {project.problem}
+                          </p>
+                        )}
+                        
+                        {project.innovation && (
+                          <p className="text-sm text-muted-foreground">
+                            <span className="font-semibold">Innovation:</span> {project.innovation}
+                          </p>
+                        )}
+                        
+                        {project.note && (
+                          <p className="text-sm italic text-muted-foreground">{project.note}</p>
+                        )}
+                        
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {project.skills.map((skill, idx) => (
+                            <Badge key={idx} variant="outline" className="text-xs">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            </TabsContent>
+
+            <TabsContent value="ml">
+              <div className="grid gap-6 md:grid-cols-2">
+                {projects.ml.map((project, index) => (
+                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <div className="flex items-start justify-between gap-4">
+                        <a 
+                          href="https://github.com/falguni-mutha" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="group flex-1"
+                        >
+                          <CardTitle className="text-xl group-hover:text-primary transition-colors flex items-center gap-2">
+                            {project.title}
+                            <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </CardTitle>
+                        </a>
+                        {project.inProgress && (
+                          <Badge variant="secondary" className="shrink-0">In Progress</Badge>
+                        )}
                       </div>
-                    )}
-                    
-                    {project.impact && (
-                      <p className="text-sm text-muted-foreground">
-                        <span className="font-semibold">Impact Focus:</span> {project.impact}
-                      </p>
-                    )}
-                    
-                    {project.problem && (
-                      <p className="text-sm text-muted-foreground">
-                        <span className="font-semibold">Problem Solved:</span> {project.problem}
-                      </p>
-                    )}
-                    
-                    {project.innovation && (
-                      <p className="text-sm text-muted-foreground">
-                        <span className="font-semibold">Innovation:</span> {project.innovation}
-                      </p>
-                    )}
-                    
-                    {project.note && (
-                      <p className="text-sm italic text-muted-foreground">{project.note}</p>
-                    )}
-                    
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {project.skills.map((skill, idx) => (
-                        <Badge key={idx} variant="outline" className="text-xs">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base mb-4 text-foreground/80">
+                        {project.description}
+                      </CardDescription>
+                      <div className="flex flex-wrap gap-2">
+                        {project.skills.map((skill, idx) => (
+                          <Badge key={idx} variant="outline" className="text-xs">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="product">
+              <div className="space-y-6">
+                {projects.product.map((project, index) => (
+                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <div className="flex items-start justify-between gap-4">
+                        <a 
+                          href="https://github.com/falguni-mutha" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="group flex-1"
+                        >
+                          <CardTitle className="text-xl group-hover:text-primary transition-colors flex items-center gap-2">
+                            {project.title}
+                            <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </CardTitle>
+                        </a>
+                        <div className="flex gap-2 shrink-0">
+                          {project.inProgress && (
+                            <Badge variant="secondary">In Development</Badge>
+                          )}
+                          {project.concept && (
+                            <Badge variant="outline">Concept</Badge>
+                          )}
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <CardDescription className="text-base text-foreground/80">
+                        {project.description}
+                      </CardDescription>
+                      
+                      {project.details && (
+                        <div>
+                          <h4 className="font-semibold text-sm mb-2">Key Solutions:</h4>
+                          <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                            {project.details.map((detail, idx) => (
+                              <li key={idx}>{detail}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      {project.impact && (
+                        <p className="text-sm text-muted-foreground">
+                          <span className="font-semibold">Impact Focus:</span> {project.impact}
+                        </p>
+                      )}
+                      
+                      {project.problem && (
+                        <p className="text-sm text-muted-foreground">
+                          <span className="font-semibold">Problem Solved:</span> {project.problem}
+                        </p>
+                      )}
+                      
+                      {project.innovation && (
+                        <p className="text-sm text-muted-foreground">
+                          <span className="font-semibold">Innovation:</span> {project.innovation}
+                        </p>
+                      )}
+                      
+                      {project.note && (
+                        <p className="text-sm italic text-muted-foreground">{project.note}</p>
+                      )}
+                      
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {project.skills.map((skill, idx) => (
+                          <Badge key={idx} variant="outline" className="text-xs">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
 
           {/* Closing Statement */}
           <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
