@@ -4,95 +4,87 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
 import FloatingEmojis from "@/components/FloatingEmojis";
-import { title } from "process";
 
 const Portfolio = () => {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
   
   const projects = {
-    product: [
-      {
-        title: "Amazon Subscribe and Save - UX redesign",
-        description: "Conducted comprehensive UX audit of Amazon's Subscribe & Save program (currently at 10% adoption). Identified three user segments based on subscription intent, mapped critical drop-off points across the purchase journey, and designed solutions to increase discoverability and conversion.",
-        tags: ["User Research", "Journey Mapping", "UX/UI Design", "A/B Testing Strategy", "Behavioral Segmentation", "RICE Framework"],
-        image: "🛒",
-      },
-      {
-        title: "System Design Whiteboard Tool ",
-        description: "A drag-and-drop whiteboard specifically built for system design interviews and architecture planning. Includes a built-in repository of all major MLOps and DevOps tools with their functionalities. Drag components, connect them, and see real-time pros/cons analysis. Problem Solved: Current tools (Excalidraw, Lucidchart) aren't built for system design specifically. This one knows what a load balancer does and can tell you why you probably don't need Kafka.",
-        tags: ["Product Design", "UX Research", "Frontend Development", "React"],
-        image: "🧑‍💻",
-      },
-      {
-        title: "GPT Text Scanner Chrome Extension (In Development)",
-        description: "Building a chrome extension that eliminates the tab-switching hell of using ChatGPT. Highlight any text on any webpage, scan it, and GPT opens in a small overlay window—no copy-paste, no context switching. Features include text improvement, summarization, and tone adjustment.Problem Solved: Current workflow requires opening ChatGPT in new tab → copy text → paste → switch back. This makes it seamless.",
-        tags: ["Chrome Extension Development", "API Integration", "UX Design", "JavaScript"],
-        image: "📻",
-      },
-      {
-        title: "Math Equation mood visulizer",
-        description: "An experimental tool that converts math equations and symbols into visual art based on emotional association. Upload your photo, select an equation (plus signs feel structured, integrals feel flowy), and generate a visual representation of how math makes you feel. Is it useful? Unclear. Is it cool? Absolutely.",
-        tags: ["Generative Art", "Image Processing", "Creative Tech", "Python"],
-        image: "📐",
-      },
-      {
-        title: "AI Teacher with Personality",
-        description: "Creating AI tutors that don't just teach—they have distinct personalities and evoke genuine emotion. The system learns your learning style and adapts both content and delivery. Because learning calculus from a robot that gets genuinely excited about derivatives hits different than one that just recites formulas. Innovation: Personalized pedagogy that adapts to individual learning patterns while maintaining consistent character traits.",
-        tags: ["LLM Prompting","EdTech"],
-        image: "👩‍🏫",
-      }
-    ],
     ml: [
       {
-        title: "Caterpillar MCP Server (In Progress)",
+        title: "Caterpillar MCP Server",
         description: "Building an MCP (Model Context Protocol) server using Llama to generate intelligent dashboards from Caterpillar's proprietary heavy machinery track data. Creating a natural language interface for engineers to query and visualize complex equipment performance metrics without writing SQL.",
-        tags: ["Llama", "Data Visualization", "Folium", "MCP", "FastAPI", "Javascript"],
-        image: "🚜",
+        skills: ["LLMs (Llama)", "Data Visualization", "Dashboard Design", "Large-scale Data Processing", "MCP Architecture"],
+        inProgress: true,
       },
       {
         title: "Hyperspectral Image Classification",
         description: "Worked with the Indian Pines dataset to classify land cover using 3D CNNs and ensemble learning. Combined spatial and spectral features to identify crop types from satellite imagery—turns out multiple dimensions make classification significantly more accurate. Implemented dimensionality reduction techniques and tested various ensemble methods to optimize performance.",
-        tags: ["3D CNNs", "Ensemble Learning", "Hyperspectral Analysis", "Dimensionality Reduction", "TensorFlow"],
-        image: "🌾",
+        skills: ["3D CNNs", "Ensemble Learning", "Hyperspectral Analysis", "Dimensionality Reduction", "TensorFlow"],
       },
       {
         title: "Indian Sign Language Recognition",
         description: "Built a complete pipeline for recognizing Indian Sign Language gestures. Started with Canny edge detection and SIFT feature extraction, moved to visual bag of words model, then implemented CNNs for real-time classification. Created a system that actually works for accessibility—which matters more than the tech stack.",
-        tags: ["Computer Vision", "CNNs", "Feature Extraction (SIFT)", "Canny Edge Detection", "Visual Bag of Words, OpenCV"],
-        image: "🤟",
+        skills: ["Computer Vision", "CNNs", "Feature Extraction (SIFT)", "Canny Edge Detection", "Visual Bag of Words", "OpenCV"],
       },
       {
         title: "Personal Portfolio Manager AI",
         description: "An AI-powered investment portfolio manager that tracks stocks and provides intelligent rebalancing recommendations. Built because manually tracking portfolios is tedious, and I wanted something smarter than spreadsheets. Uses ML models to analyze market trends and suggest optimal allocation strategies.",
-        tags: ["Streamlit", "GPT-4", "API integration"],
-        image: "📰",
+        skills: ["Financial Modeling", "API Integration", "Data Analysis", "Portfolio Optimization", "Python"],
+        github: "#",
       },
       {
         title: "Smart Insulin Pump System",
         description: "Designed an IoT-based insulin delivery system that adapts to real-time glucose monitoring. The pump adjusts dosage automatically based on continuous glucose data, reducing the burden on patients managing diabetes. Healthcare + engineering at its most practical.",
-        tags: ["IoT, Embedded Systems", "Healthcare Tech", "Real-time Data Processing", "Arduino/Raspberry Pi"],
-        image: "💉",
+        skills: ["IoT", "Embedded Systems", "Healthcare Tech", "Real-time Data Processing", "Arduino/Raspberry Pi"],
+        github: "#",
       },
       {
-        title: "Mini Multi-Agent Workflow Manager",
+        title: "Mini Mahilo - Multi-Agent Workflow Manager",
         description: "Created a lightweight flexible agent manager for orchestrating multiple AI agents. Basically air traffic control for chatbots—handles naming, routing, and coordination between different AI agents in complex workflows. Makes multi-agent systems less chaotic.",
-        tags: ["Agent Orchestration", "LLM Integration"],
-        image: "🤖",
+        skills: ["Agent Orchestration", "LLM Integration", "Workflow Management", "Python", "System Architecture"],
+        github: "#",
       }
     ],
-    strategy: [
+    product: [
       {
-        title: "Product Roadmap Framework",
-        description: "Developed strategic framework for prioritizing AI features based on user impact and technical feasibility.",
-        tags: ["Strategy", "Product", "Planning"],
-        image: "🎯",
+        title: "Amazon Subscribe & Save - UX Redesign",
+        description: "Conducted comprehensive UX audit of Amazon's Subscribe & Save program (currently at 10% adoption). Identified three user segments based on subscription intent, mapped critical drop-off points across the purchase journey, and designed solutions to increase discoverability and conversion.",
+        details: [
+          "Smart bundling to unlock 10% multi-item discount",
+          "Personalized homepage nudges based on purchase behavior",
+          "Improved PLP/PDP visibility with interactive UI elements",
+          "Cart-level subscription upsells and clear differentiation",
+          "Cross-platform reminders via push notifications & WhatsApp"
+        ],
+        impact: "Used RICE framework to prioritize initiatives. Proposed solutions targeting discoverability (badges, highlights), checkout friction (one-click switches), and retention (personalized restock reminders).",
+        skills: ["User Research", "Journey Mapping", "UX/UI Design", "A/B Testing Strategy", "Behavioral Segmentation", "RICE Framework"],
       },
       {
-        title: "User Research Initiative",
-        description: "Led comprehensive user research to identify pain points in ML product adoption.",
-        tags: ["Research", "UX", "Strategy"],
-        image: "🔍",
+        title: "GPT Text Scanner Chrome Extension",
+        description: "Building a chrome extension that eliminates the tab-switching hell of using ChatGPT. Highlight any text on any webpage, scan it, and GPT opens in a small overlay window—no copy-paste, no context switching. Features include text improvement, summarization, and tone adjustment.",
+        problem: "Current workflow requires opening ChatGPT in new tab → copy text → paste → switch back. This makes it seamless.",
+        skills: ["Chrome Extension Development", "API Integration", "UX Design", "JavaScript"],
+        inProgress: true,
       },
+      {
+        title: "Math Equation Mood Visualizer",
+        description: "An experimental tool that converts math equations and symbols into visual art based on emotional association. Upload your photo, select an equation (plus signs feel structured, integrals feel flowy), and generate a visual representation of how math makes you feel.",
+        note: "Is it useful? Unclear. Is it cool? Absolutely.",
+        skills: ["Generative Art", "Image Processing", "Creative Tech", "Python"],
+        concept: true,
+      },
+      {
+        title: "AI Teacher with Personality",
+        description: "Creating AI tutors that don't just teach—they have distinct personalities and evoke genuine emotion. The system learns your learning style and adapts both content and delivery. Because learning calculus from a robot that gets genuinely excited about derivatives hits different than one that just recites formulas.",
+        innovation: "Personalized pedagogy that adapts to individual learning patterns while maintaining consistent character traits.",
+        skills: ["LLM Fine-tuning", "Adaptive Learning Systems", "Personality Modeling", "EdTech"],
+      },
+      {
+        title: "System Design Whiteboard Tool",
+        description: "A drag-and-drop whiteboard specifically built for system design interviews and architecture planning. Includes a built-in repository of all major MLOps and DevOps tools with their functionalities. Drag components, connect them, and see real-time pros/cons analysis.",
+        problem: "Current tools (Excalidraw, Lucidchart) aren't built for system design specifically. This one knows what a load balancer does and can tell you why you probably don't need Kafka.",
+        skills: ["System Architecture", "Tool Knowledge (MLOps/DevOps)", "Interactive Diagramming", "Product Design"],
+        concept: true,
+      }
     ],
   };
 
@@ -116,7 +108,7 @@ const Portfolio = () => {
           <section className="mb-20">
             <h2 className="text-3xl font-bold text-foreground mb-8">Machine Learning & Technical Projects</h2>
             <div className="grid gap-6 md:grid-cols-2">
-              {mlProjects.map((project, index) => (
+              {projects.ml.map((project, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -154,7 +146,7 @@ const Portfolio = () => {
           <section className="mb-20">
             <h2 className="text-3xl font-bold text-foreground mb-8">Product Projects</h2>
             <div className="space-y-6">
-              {productProjects.map((project, index) => (
+              {projects.product.map((project, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-start justify-between">
