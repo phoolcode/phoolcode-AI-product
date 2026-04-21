@@ -26,12 +26,12 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-6 py-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/60">
+      <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <label className="cursor-pointer relative">
-              <img src={logo} alt="Logo" className="w-20 h-20 object-contain hover:scale-110 transition-transform" />
+              <img src={logo} alt="phoolcode" className="w-12 h-12 object-contain hover:scale-110 transition-transform" />
               <input
                 type="file"
                 accept="image/*"
@@ -39,15 +39,16 @@ const Navigation = () => {
                 className="hidden"
               />
             </label>
+            <span className="text-xl font-bold text-primary tracking-tight hidden sm:block">phoolcode</span>
           </Link>
 
-          <div className="flex gap-6">
+          <div className="flex gap-5 items-center">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  "text-base font-medium transition-colors hover:text-primary relative",
+                  "text-sm font-medium transition-colors hover:text-primary relative pb-0.5",
                   location.pathname === item.path
                     ? "text-primary"
                     : "text-muted-foreground"
@@ -55,7 +56,7 @@ const Navigation = () => {
               >
                 {item.name}
                 {location.pathname === item.path && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
+                  <span className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-accent rounded-full" />
                 )}
               </Link>
             ))}
